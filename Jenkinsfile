@@ -33,8 +33,8 @@ pipeline {
     }
     stage ('Kubernetes Deployment - DEV') {
       steps {
-        withKubeConfig([credentialsId: 'kubeconfig']){
-          sh "sed -i 's#replace#tisanbako/numeric-app:${GIT_COMMIT}#3' k8s-tisan.yaml"
+        withKubeConfig([credentialsId: 'kube-config']){
+          sh "sed -i 's#replace#tisanbako/numeric-app:${GIT_COMMIT}#g' k8s-tisan.yaml"
           sh "kubectl apply -f k8s-tisan.yaml"
         }
       }
