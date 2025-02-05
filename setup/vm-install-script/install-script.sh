@@ -42,6 +42,7 @@ systemctl restart containerd
 kubeadm init --pod-network-cidr '10.244.0.0/16' --service-cidr '10.96.0.0/16'  --skip-token-print
 
 mkdir -p ~/.kube
+sudo chmod 777 /etc/kubernetes/admin.conf 
 cp -i /etc/kubernetes/admin.conf ~/.kube/config
 
 kubectl apply -f "https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s-1.11.yaml"
@@ -73,7 +74,7 @@ systemctl enable docker
 
 
 echo ".........----------------#################._.-.-Java and MAVEN-.-._.#################----------------........."
-apt install openjdk-11-jdk maven -y
+apt install openjdk-17-jdk maven -y
 java -version
 mvn -v
 
