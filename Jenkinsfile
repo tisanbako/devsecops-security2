@@ -9,7 +9,7 @@ pipeline {
       }
     }
 
-    stage ('Unit Tests - JUnit and Jacoco') {
+    stage ('Unit Tests - JUnit & Jacoco') {
       steps {
         sh "mvn test"
       }
@@ -21,7 +21,7 @@ pipeline {
       }
     }
 
-    stage('Build and Push Docker Image') {
+    stage('Build & Push Docker Image') {
       steps {
         withDockerRegistry([credentialsId: "dockerhub", url: ""]){
           sh 'printenv'
@@ -34,7 +34,7 @@ pipeline {
     stage ('Kubernetes Deployment - DEV') {
       steps {
         withKubeConfig([credentialsId: 'kubeconfig']){
-          sh "sed -i 's#replace#tisanbako/numeric-app:${GIT_COMMIT}#g' k8s-tisan.yaml"
+          sh "sed -i 's#replace#tisanbako/numeric-app:${GIT_COMMIT}#g3' k8s-tisan.yaml"
           sh "kubectl apply -f k8s-tisan.yaml"
         }
       }
