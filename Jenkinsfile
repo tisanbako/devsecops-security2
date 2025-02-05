@@ -8,5 +8,11 @@ pipeline {
         archive 'target/*.jar' // for the package to be doanloadedd
       }
     }
+
+    stage ('Unit Test') {
+      steps {
+        sh "mvn test"
+      }
+    }
   }
 }
