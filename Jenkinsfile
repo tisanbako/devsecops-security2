@@ -28,7 +28,7 @@ pipeline {
               def IMAGE_TAG = "$GIT_COMMIT"
 
               // Login to Docker Hub (Ensure credentials are stored in Jenkins)
-             withCredentials([usernamePassword(credentialsId: 'dockerhub')]) {
+             withCredentials([usernamePassword(credentialsId: "dockerhub")]) {
                 sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
              }
 
