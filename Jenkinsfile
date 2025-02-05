@@ -20,5 +20,26 @@ pipeline {
         }
       }
     }
+
+    stage('Build and Push Docker Image') {
+      steps {
+          script {
+              def IMAGE_NAME = "tisanbako/numeric-app"
+              def IMAGE_TAG = "$GIT_COMMIT"
+
+              // Login to Docker Hub (Ensure credentials are stored in Jenkins)
+             withCredentials([usernamePassword(credentialsId: 'dockerhub')]) {
+                sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
+             }
+
+             // Build Docker Image
+             sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+
+             // Push Docker Image
+             sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+          }
+      }  
+    }
+
   }
 }
