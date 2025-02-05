@@ -3,8 +3,10 @@ pipeline {
 
   stages {
     stage ('Build Artifact') {
-      sh "mvn clean package  -DskipTests=true"
-      archive 'target/*jar'  //so the package can be downloaded
+      steps {
+        sh "mvn clean package -DskipTests=true"
+        archive 'target/*.jar' // for the package to be doanloaded
+      }
     }
   }
 }
