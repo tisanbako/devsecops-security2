@@ -25,7 +25,7 @@ pipeline {
       steps {
         sh "mvn org.pitest:pitest-maven:mutationCoverage"
       }
-      postn{
+      post{
         always {
           pitmutation mutationStateFile: '**/target/pit-reports/**/mutations.xml'
         }
