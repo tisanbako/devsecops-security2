@@ -36,10 +36,10 @@ pipeline {
       steps {
         withSonarQubeEnv('SonarQube') {
             sh 'mvn clean verify sonar:sonar \
-              -Dsonar.projectKey=numeric-application \
-              -Dsonar.host.url=http://107.21.88.72:9000'
+                -Dsonar.projectKey=numeric-application \
+                -Dsonar.host.url=http://107.21.88.72:9000'
         }
-        timeout(time: 5, unit: 'MINUTES') {
+        timeout(time: 2, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: true    
         }
        
