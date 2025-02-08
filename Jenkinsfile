@@ -38,7 +38,7 @@ pipeline {
             sh 'mvn clean verify sonar:sonar \
                 -Dsonar.projectKey=numeric-application \
                 -Dsonar.host.url=http://107.21.88.72:9000
-                -Dsonar.login=sqp_a100f96bd46fab083620267b44c273dbacfee56e
+                -Dsonar.login=sqp_a100f96bd46fab083620267b44c273dbacfee56e'
         }
         timeout(time: 2, unit: 'MINUTES') {
           script {
