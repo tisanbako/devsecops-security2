@@ -40,7 +40,10 @@ pipeline {
                 -Dsonar.host.url=http://107.21.88.72:9000'
         }
         timeout(time: 2, unit: 'MINUTES') {
-            waitForQualityGate abortPipeline: true    
+          script {
+            waitForQualityGate abortPipeline: true 
+
+          }      
         }
        
       }
