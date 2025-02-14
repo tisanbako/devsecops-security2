@@ -20,7 +20,7 @@ pipeline {
         }
       }
     }
-
+//DevSecOps
     stage ('Mutation Tests - PIT') {
       steps {
         sh "mvn org.pitest:pitest-maven:mutationCoverage"
@@ -34,11 +34,11 @@ pipeline {
 
     stage ('Sonarqube - SAST') {
       steps {
-        withSonarQubeEnv('SonarQube') {
+        withSonarQubeEnv('SonarQube') {   // withSonarQubeEnv is added during quality gate
             sh 'mvn clean verify sonar:sonar \
-                -Dsonar.projectKey=numeric-application \
-                -Dsonar.host.url=http://107.21.88.72:9000'
-                // -Dsonar.login=sqp_a100f96bd46fab083620267b44c273dbacfee56e
+               -Dsonar.projectKey=numeric-application \
+               -Dsonar.host.url=http://34.207.113.142:9000 \
+               -Dsonar.login=sqp_f5f516ce0ac5dfddfe359f2b8f8a5d2b490a0ea0'
         }
         //timeout(time: 2, unit: 'MINUTES') {
         //waitForQualityGate abortPipeline: true 
@@ -68,3 +68,10 @@ pipeline {
 
   }
 }
+
+
+
+
+
+
+
