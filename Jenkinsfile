@@ -34,17 +34,17 @@ pipeline {
 
     stage ('Sonarqube - SAST') {
       steps {
-        withSonarQubeEnv('SonarQube') {   // withSonarQubeEnv is added during quality gate (SonarQube) is the name of the server
+        withSonarQubeEnv('SonarQube') {   //(SonarQube) is the name of the server configured on jenkins  withSonarQubeEnv is added during quality gate (SonarQube) is the name of the server
             sh 'mvn clean verify sonar:sonar \
                -Dsonar.projectKey=numeric-application \
                -Dsonar.host.url=http://34.207.113.142:9000' 
-               //-Dsonar.login=sqp_f5f516ce0ac5dfddfe359f2b8f8a5d2b490a0ea0'
+               //-Dsonar.login=sqa_9186b9511e30542a4236574f385d630ea7604735'
         }
         timeout(time: 2, unit: 'MINUTES') {
         waitForQualityGate abortPipeline: true 
         }
        
-      }
+      }  
     }
 
     stage('Build & Push Docker Image') {
