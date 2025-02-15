@@ -37,7 +37,7 @@ pipeline {
         withSonarQubeEnv('SonarQube') {   //(SonarQube) is the name of the server configured on jenkins  withSonarQubeEnv is added during quality gate (SonarQube) is the name of the server
             sh 'mvn clean verify sonar:sonar \
                -Dsonar.projectKey=numeric-application \
-               -Dsonar.host.url=http://34.207.113.142:9000' 
+               -Dsonar.host.url=http://54.165.164.39:9000' 
                //-Dsonar.login=sqa_9186b9511e30542a4236574f385d630ea7604735'
         }
         timeout(time: 2, unit: 'MINUTES') {
