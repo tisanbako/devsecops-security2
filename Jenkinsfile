@@ -1,5 +1,7 @@
 pipeline {
   agent any
+  environment {
+        NVD_API_KEY = credentials('NVD_API_KEY')  // Reference API key securely
 
   stages {
     stage ('Build Artifact') {
@@ -47,9 +49,17 @@ pipeline {
       }  
     }
 
-    stage ('Dependency Scan - Docker') {
+    stage ('Dependency Check Scan') {
       steps {
-        sh "mvn dependency-check:check"
+        script {
+          sh '''
+          # Run OWASP Dependency-Check
+          /opt/dependency-check/bin/dependency-check.sh --project "MyApp" --scan . --format HTML --out dependency-check-report --nvdApiKey $NVD_API_KEY
+          '''
+        }
+      }
+      steps {
+        archiveArtifacts artifacts: 'target/dependency-check-report/dependency-check-report.html', fingerprint: true
       }
       post {
         always {
