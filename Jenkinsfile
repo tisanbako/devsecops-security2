@@ -1,7 +1,8 @@
 pipeline {
   agent any
   environment {
-        NVD_API_KEY = credentials('NVD_API_KEY')  // Reference API key securely
+    NVD_API_KEY = credentials('NVD_API_KEY')  // Reference API key securely
+  }
 
   stages {
     stage ('Build Artifact') {
