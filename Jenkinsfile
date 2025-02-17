@@ -39,7 +39,7 @@ pipeline {
       steps {
         withSonarQubeEnv('SonarQube') {   //(SonarQube) is the name of the server configured on jenkins  withSonarQubeEnv is added during quality gate (SonarQube) is the name of the server
             sh 'mvn clean verify sonar:sonar \
-               -Dsonar.projectKey=numeric-application
+               -Dsonar.projectKey=numeric-application \
                -Dsonar.host.url=http://3.84.151.147:9000' 
                //-Dsonar.login=sqa_9186b9511e30542a4236574f385d630ea7604735'
         }
