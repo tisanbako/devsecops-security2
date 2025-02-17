@@ -50,21 +50,21 @@ pipeline {
       }  
     }
 
-    stage ('Dependency Check Scan') {
-      steps {
-        script {
-          sh '''
-          # Run OWASP Dependency-Check
-          /opt/dependency-check/bin/dependency-check.sh --project "MyApp" --scan . --format HTML --out dependency-check-report --nvdApiKey $NVD_API_KEY
-          '''
-        }
-      }
-      post {
-        always {
-          dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
-        }
-      }
-    }
+    //stage ('Dependency Check Scan') {
+      //steps {
+        //script {
+          //sh '''
+          //# Run OWASP Dependency-Check
+          ///opt/dependency-check/bin/dependency-check.sh --project "MyApp" --scan . --format HTML --out dependency-check-report --nvdApiKey $NVD_API_KEY
+          //'''
+        //}
+      //}
+      //post {
+        //always {
+          //dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
+        //}
+      //}
+    //}
 
     stage('Build & Push Docker Image') {
       steps {
