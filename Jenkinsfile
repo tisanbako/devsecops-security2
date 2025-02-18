@@ -5,6 +5,12 @@ pipeline {
   }
 
   stages {
+    stage('Clear Dependency-Check Cache') {
+      steps {
+        sh 'rm -rf ~/.dependency-check'
+      }
+    }
+
     stage ('Build Artifact') {
       steps {
         sh "mvn clean package -DskipTests=true"
