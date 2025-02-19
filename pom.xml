@@ -101,24 +101,22 @@
 			   </plugin>
 
 			<!--                   Dependency Check Plugin                   -->
-			  <plugin>
-                 <groupId>org.owasp</groupId>
-                 <artifactId>dependency-check-maven</artifactId>
-                <version>12.1.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-               <configuration>
-                   <format>ALL</format>
-                   <failBuildOnCVSS>8</failBuildOnCVSS>
-                   <dataDirectory>${project.build.directory}/dependency-check-data</dataDirectory>
-                   <nvdApiKey>${env.NVD_API}</nvdApiKey> <!-- Reference API key from environment variable -->
-               </configuration>
-           </plugin>
+
+               <plugin>
+                   <groupId>org.owasp</groupId>
+                   <artifactId>dependency-check-maven</artifactId>
+                   <version>8.4.0</version>
+                   <executions>
+                       <execution>
+                            <goals>
+                                 <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    </configuration>
+                         <apiKey>${NVD_API}</apiKey>
+                    </configuration>
+              </plugin>
 
 
 
