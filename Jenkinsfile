@@ -50,18 +50,18 @@ pipeline {
       }  
     }
 
-    // stage('Dependency Check') {
-    //         steps {
-    //             sh '''
-    //                 /opt/dependency-check/bin/dependency-check.sh \
-    //                 --project MyApp \
-    //                 --scan . \
-    //                 --format HTML \
-    //                 --out dependency-check-report \
-    //                 --nvdApiKey $NVD_API
-    //             '''
-    //         }
-    // }
+    stage('Dependency Check') {
+            steps {
+                sh '''
+                    /opt/dependency-check/bin/dependency-check.sh \
+                    --project MyApp \
+                    --scan . \
+                    --format HTML \
+                    --out dependency-check-report \
+                    --nvdApiKey $NVD_API
+                '''
+            }
+    }
 
     // stage ('Docker Scan') {
     //   steps {
@@ -109,7 +109,7 @@ pipeline {
           junit 'target/surefire-reports/*.xml'
           jacoco execPattern: 'target/jacoco.exec'
           //dependencyCheckPublisher pattern: 'target/dependency-check-report.xml' 
-          //archiveArtifacts artifacts: '**/dependency-check-report.xml', fingerprint: true
+          archiveArtifacts artifacts: '**/dependency-check-report.xml', fingerprint: true
         }
   }
 }
