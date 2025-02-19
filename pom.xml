@@ -116,12 +116,10 @@
                     <configuration>
                          <apiKey>${NVD_API}</apiKey>
                     </configuration>
-              </plugin>
+               </plugin>
 
-
-
-		 </plugins>
-	 </build>
+	       </plugins>
+	</build>
 
  </project>
 
