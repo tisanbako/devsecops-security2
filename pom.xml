@@ -116,8 +116,8 @@
                   </execution>
               </executions>
 			  <configuration>
-                    <apiKey>${NVD_API}</apiKey>
-              </configuration>
+                 <apiKey>${NVD_API}</apiKey>
+             </configuration>
             </plugin>
 
 	       </plugins>
