@@ -113,7 +113,7 @@
                             </goals>
                         </execution>
                     </executions>
-                    </configuration>
+                    <configuration>
                          <apiKey>${NVD_API}</apiKey>
                     </configuration>
               </plugin>
