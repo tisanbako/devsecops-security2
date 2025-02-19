@@ -101,7 +101,17 @@
 			   </plugin>
 
 			<!--                   Dependency Check Plugin                   -->
-			 
+			   <plugin>
+                   <groupId>org.owasp</groupId>
+                   <artifactId>dependency-check-maven</artifactId>
+                   <version>8.3.1</version>
+                   <configuration>
+                       <format>ALL</format>
+                       <failBuildOnCVSS>8</failBuildOnCVSS>
+                       <nvdApiKey>${env.NVD_API}</nvdApiKey>  <!-- Reference environment variable -->
+                   </configuration>
+               </plugin>
+
 
 		 </plugins>
 	 </build>

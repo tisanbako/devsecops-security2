@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    NVD_API_KEY = credentials('NVD_API_KEY')  // Reference API key securely
+    NVD_API = credentials('NVD_API_KEY')  // Reference API key securely
   }
 
   stages {
@@ -49,6 +49,19 @@ pipeline {
        
       }  
     }
+
+    stage('Dependency Check') {
+            steps {
+                sh '''
+                    /opt/dependency-check/bin/dependency-check.sh \
+                    --project MyApp \
+                    --scan . \
+                    --format HTML \
+                    --out dependency-check-report \
+                    --nvdApiKey $NVD_API
+                '''
+            }
+        }
 
     //stage ('Dependency Check Scan') {
       //steps {
