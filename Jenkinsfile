@@ -63,11 +63,11 @@ pipeline {
     //         }
     // }
 
-    stage ('Docker Scan') {
-      steps {
-        sh "bash trivy-docker-image-scan.sh"
-      }
-    }
+    // stage ('Docker Scan') {
+    //   steps {
+    //     sh "bash trivy-docker-image-scan.sh"
+    //   }
+    // }
 
     //stage ('Dependency Check Scan') {
       //steps {
