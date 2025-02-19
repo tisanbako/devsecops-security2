@@ -89,7 +89,7 @@ pipeline {
       steps {
         withDockerRegistry([credentialsId: "dockerhub", url: ""]){
           sh 'printenv'
-          sh 'docker build -t tisanbako/numeric-app:""$GIT_COMMIT"" .'
+          sh 'docker build --no-cache --progress=plain -t tisanbako/numeric-app:""$GIT_COMMIT"" .'
           sh 'docker push tisanbako/numeric-app:""$GIT_COMMIT""'
         }
          
