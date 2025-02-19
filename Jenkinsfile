@@ -13,7 +13,7 @@ pipeline {
     stage ('Build Artifact') {
       steps {
         sh "mvn clean package -DskipTests=true"
-        archive 'target/*.jar' // for the package to be doanloadedd
+        archiveArtifacts 'target/*.jar' // for the package to be doanloadedd
       }
     }
 
