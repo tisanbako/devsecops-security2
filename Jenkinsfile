@@ -53,6 +53,7 @@ pipeline {
     stage('Dependency Check') {
             steps {
                 sh '''
+                    rm -rf ~/.dependency-check
                     /opt/dependency-check/bin/dependency-check.sh \
                     --project MyApp \
                     --scan . \
