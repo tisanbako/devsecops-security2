@@ -4,12 +4,11 @@ pipeline {
     NVD_API_KEY = credentials('NVD_API_KEY')  // Reference API key securely
   }
 
-  stages {
-    stage('Clear Dependency-Check Cache') {
-      steps {
-        sh 'rm -rf ~/.dependency-check'
-      }
-    }
+  //stages {
+    //stage('Clear Dependency-Check Cache') {
+      //steps {
+        //sh 'rm -rf ~/.dependency-check}
+    //}
 
     stage ('Build Artifact') {
       steps {
