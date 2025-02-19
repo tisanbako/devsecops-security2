@@ -56,7 +56,7 @@ pipeline {
                     /opt/dependency-check/bin/dependency-check.sh \
                     --project MyApp \
                     --scan . \
-                    --format HTML \
+                    --format XML \
                     --out dependency-check-report \
                     --nvdApiKey $NVD_API
                 '''
