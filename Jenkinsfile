@@ -59,6 +59,7 @@ pipeline {
                     --format XML \
                     --out dependency-check-report \
                     --nvdApiKey $NVD_API
+                    --data /var/lib/jenkins/dependency-check-db
                 '''
             }
     }
