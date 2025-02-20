@@ -106,6 +106,7 @@
               <artifactId>dependency-check-maven</artifactId>
               <version>12.1.0</version>
               <configuration>
+			      <apiKey>${NVD_API}</apiKey>
                   <failBuildOnCVSS>8</failBuildOnCVSS>
               </configuration>
               <executions>
@@ -115,9 +116,6 @@
                       </goals>
                   </execution>
               </executions>
-			  <configuration>
-                <apiKey>${NVD_API}</apiKey>
-              </configuration>
 			</plugin>
 
 	       </plugins>
