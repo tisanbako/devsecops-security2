@@ -115,6 +115,10 @@
                       </goals>
                   </execution>
               </executions>
+			  <configuration>
+                <apiKey>${NVD_API}</apiKey>
+              </configuration>
+			</plugin>
 
 	       </plugins>
 	</build>
