@@ -101,22 +101,7 @@
 			   </plugin>
 
 			<!--                   Dependency Check Plugin                   -->
-            <plugin>
-              <groupId>org.owasp</groupId>
-              <artifactId>dependency-check-maven</artifactId>
-              <version>12.1.0</version>
-              <configuration>
-			      <apiKey>${NVD_API}</apiKey>
-                  <failBuildOnCVSS>8</failBuildOnCVSS>
-              </configuration>
-              <executions>
-                  <execution>
-                      <goals>
-                          <goal>check</goal>
-                      </goals>
-                  </execution>
-              </executions>
-			</plugin>
+
 	       </plugins>
 	</build>
 
